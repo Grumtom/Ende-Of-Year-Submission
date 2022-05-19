@@ -5,12 +5,14 @@ char[] gender = {'m', 'f', 'h', 'n'};
 char bigGender;
 int eyes = 0;
 float colour = 0;
-String[] name = {"invoke","justice","the","big","lemon","divine","ancient","calamity","free","invisible","telemarketer","Asmoranomardicadaistinaculdacar","speed","whfuh","bell","Leg","mepo","Serj","iceFrog"};
+String[] name = {"invoke","justice","the","big","lemon","divine","ancient","calamity","free","invisible","telemarketer","speed","whfuh","bell","Leg","mepo","Serj","iceFrog"};
 String bigName;
 int nameNum = 0;
 float totalLength = 0;
 float eyeAngle = 0;
 
+float danceyAngle = 0;
+float danceyThing = 0;
 
 void setup()
 {
@@ -34,10 +36,16 @@ void draw()
   text(bigName, width/2, 100); // name text at the top
   noFill();
 
+danceyAngle += 0.1;
+
+
+
+
   for (int I=0; I < tLength + 1; I++)
   {
+    danceyThing = 100 *sin(danceyAngle - 0.6*I);
     pushMatrix();
-    translate(width/2, height/5 + I*tSize);
+    translate(width/2 + danceyThing, height/5 + I*tSize);
     
     if (I == 0) {
       drawHead(); // draws the head at the start of the worm
@@ -58,7 +66,9 @@ void draw()
       randomize(); // randomizes the tadpole on spacebar
     }
   }
-} // --------------------------------------------------------------------------------------
+} // -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
@@ -88,6 +98,9 @@ void randomize()
     bigName += " ";
   }
 }
+
+
+
 
 void drawHead()
 {
